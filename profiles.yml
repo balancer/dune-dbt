@@ -1,5 +1,5 @@
 # dbt profile for Dune API connection
-dbt_template:
+balancer:
   target: dev
   outputs:
     dev:
