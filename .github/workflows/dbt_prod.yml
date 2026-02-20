@@ -1,0 +1,45 @@
+name: dbt prod incremental
+
+on:
+  # schedule:
+  #   - cron: '0 * * * *'  # Run every hour at minute 0
+  # NOTE: Schedule is disabled by default. Uncomment when ready to enable hourly production runs.
+  # Check the README.md to make sure you understand the credit costs associated with running dbt.
+  workflow_dispatch:  # Allow manual triggers
+
+concurrency:
+  group: dbt-prod-runs  # Shared group with dbt_deploy.yml to prevent concurrent production runs
+  cancel-in-progress: false  # Don't cancel in-progress runs, queue instead
+
+jobs:
+  dbt-prod:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
+      DUNE_TEAM_NAME: ${{ vars.DUNE_TEAM_NAME || 'dune' }}  # Set as GitHub Variable or defaults to 'dune'
+      DBT_TARGET: prod  # All dbt commands will use the prod target from profiles.yml
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Install dbt packages
+        run: uv run dbt deps
+
+      - name: Run models
+        run: uv run dbt run --exclude config.materialized:view # views should only run when modified
+
+      - name: Test models
+        run: uv run dbt test --exclude config.materialized:view # views should only be tested when modified
