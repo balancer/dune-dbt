@@ -1,0 +1,1936 @@
+version: 2
+sources:
+- name: balancer
+  tables:
+  - name: token_whitelist
+- name: balancer_v2_arbitrum
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - &id001
+      name: call_block_number
+      description: Block number which processed the unique transaction hash
+    - &id002
+      name: call_block_time
+      description: Timestamp for block time in which the call occurred in UTC
+    - &id003
+      name: call_success
+      description: Boolean indicating if call was successfully processed
+    - &id004
+      name: call_trace_address
+      description: ''
+    - &id005
+      name: call_tx_hash
+      description: Primary key of the transaction
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - &id010
+      name: mainToken
+      description: Address of the main token of the created pool
+    - &id011
+      name: wrappedToken
+      description: Address of the wrapped token of the created pool
+    - &id012
+      name: upperTarget
+      description: Upper limit of the "no fee zone" of the created pool
+    - &id006
+      name: output_0
+      description: Contract address of the created pool
+    - &id007
+      name: owner
+      description: Contract of the pool owner
+    - &id008
+      name: swapFeePercentage
+      description: Pool swap fee in percentage
+    - &id009
+      name: symbol
+      description: Symbol of the created pool
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - &id018
+      name: tokenRateCacheDurations
+      description: Array with the duration of each tokens cached by RateProviders
+    - &id019
+      name: exemptFromYieldProtocolFeeFlags
+      description: Array of booleans indicating if each token of the pool is exempt
+        from yield protocol fee
+    - *id006
+    - *id007
+    - *id008
+    - &id017
+      name: amplificationParameter
+      description: Amplification parameter of the created pool
+    - &id016
+      name: rateProviders
+      description: Array with the contracts of the rate providers of the created pool
+    - *id009
+    - &id013
+      name: tokens
+      description: Array with the address of the created pool tokens
+  - name: ERC4626LinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ERC4626LinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: InvestmentPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer InvestmentPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the InvestmentPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id006
+    - *id007
+    - *id008
+    - &id014
+      name: swapEnabledOnStart
+      description: Boolean indicating if swap is enabled on start
+    - &id020
+      name: managementSwapFeePercentage
+      description: Management swap fee in percentage
+    - *id009
+    - *id013
+    - &id015
+      name: weights
+      description: Array with the weight of each token in the created pool
+  - name: LiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer LiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the LiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: MetaStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer MetaStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the MetaStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - &id021
+      name: oracleEnabled
+      description: Boolean which indicates if the oracle functionality is enabled
+        in the created pool
+    - *id016
+    - &id022
+      name: priceRateCacheDuration
+      description: Array with the duration of the cached prices from RateProviders
+        for each token
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: StablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer StablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the StablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id017
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: Vault_evt_Swap
+- name: balancer_v2_avalanche_c
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ERC4626LinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ManagedPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ManagedPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ManagedPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: Vault_evt_Swap
+- name: balancer_v2_base
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ERC4626LinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ERC4626LinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ERC4626LinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ManagedPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ManagedPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ManagedPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: Vault_evt_Swap
+- name: balancer_v2_ethereum
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: InvestmentPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer InvestmentPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - name: contract_address
+      description: Address of the InvestmentPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id006
+    - *id007
+    - *id008
+    - *id014
+    - *id020
+    - *id009
+    - *id013
+    - *id015
+  - name: LiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer LiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the LiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: MetaStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer MetaStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the MetaStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id021
+    - *id016
+    - *id022
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: StablePhantomPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer StablePhantomPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the StablePhantomPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id006
+    - *id007
+    - *id016
+    - *id018
+    - *id017
+    - *id008
+    - *id009
+    - *id013
+  - name: StablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer StablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the StablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id017
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: Vault_evt_Swap
+- name: balancer_v2_gnosis
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: AaveLinearPoolV3Factory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ComposableStablePoolV2Factory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ManagedPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ManagedPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ManagedPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: StablePoolV2Factory_call_create
+    description: 'Decoded table of registered pools on the Balancer StablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the StablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id017
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: Vault_evt_Swap
+- name: balancer_v2_optimism
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id018
+    - *id009
+    - *id013
+  - name: MetaStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer MetaStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the MetaStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id021
+    - *id016
+    - *id022
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: StablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer StablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the StablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id017
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: Vault_evt_Swap
+- name: balancer_v2_polygon
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: InvestmentPoolFactory_call_create
+    description: 'Deco*ed table of registered pools on the Balancer InvestmentPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the InvestmentPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id006
+    - *id007
+    - *id008
+    - *id014
+    - *id020
+    - *id009
+    - *id013
+    - *id015
+  - name: LiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer LiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the LiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: MetaStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer MetaStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the MetaStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id021
+    - *id016
+    - *id022
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: StablePhantomPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer StablePhantomPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the StablePhantomPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id006
+    - *id007
+    - *id016
+    - *id018
+    - *id017
+    - *id008
+    - *id009
+    - *id013
+  - name: StablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer StablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the StablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id017
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: Vault_evt_Swap
+- name: balancer_v2_zkevm
+  tables:
+  - name: AaveLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer AaveLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the AaveLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id010
+    - *id011
+    - *id012
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+  - name: ComposableStablePoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ComposableStablePoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ERC4626LinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ERC4626LinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ERC4626LinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: GearboxLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer GearboxLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the GearboxLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: ManagedPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer ManagedPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the ManagedPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+  - name: NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer NoProtocolFeeLiquidityBootstrappingPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the NoProtocolFeeLiquidityBootstrappingPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id014
+    - *id006
+    - *id007
+    - *id008
+    - *id009
+    - *id013
+    - *id015
+  - name: ProtocolFeeController_evt_GlobalProtocolSwapFeePercentageChanged
+  - name: ProtocolFeeController_evt_PoolCreatorSwapFeePercentageChanged
+  - name: Vault_evt_LiquidityAdded
+  - name: Vault_evt_LiquidityRemoved
+  - name: YearnLinearPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Balancer YearnLinearPoolFactory
+      contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: contract_address
+      description: Address of the YearnLinearPoolFactory contract
+    - name: name
+      description: Name of the created pool
+    - *id018
+    - *id019
+    - *id006
+    - *id007
+    - *id008
+    - *id017
+    - *id016
+    - *id009
+    - *id013
+- name: balancer_v3
+  tables:
+  - name: erc4626_token_prices
+- name: balancer_v3_arbitrum
+  tables:
+  - name: Vault_evt_PoolBalanceChanged
+  - name: Vault_evt_PoolBalanceManaged
+- name: balancer_v3_base
+  tables:
+  - name: Vault_evt_PoolBalanceChanged
+  - name: Vault_evt_PoolBalanceManaged
+- name: balancer_v3_ethereum
+  tables:
+  - name: Vault_evt_PoolBalanceChanged
+  - name: Vault_evt_PoolBalanceManaged
+- name: balancer_v3_gnosis
+  tables:
+  - name: Vault_evt_PoolBalanceChanged
+  - name: Vault_evt_PoolBalanceManaged
+- name: dex
+  tables:
+  - name: prices
+- name: erc20_arbitrum
+  description: Standard ERC20 Fungible Token event tables for arbitrum
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Sender of tokens
+    - name: to
+      description: Recipient of tokens
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: erc20_avalanche_c
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Address of the account that initiated and signed this transaction
+    - name: to
+      description: Address of the recipient account or contract; null for contract
+        creation transactions
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: erc20_base
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Address of the account that initiated and signed this transaction
+    - name: to
+      description: Address of the recipient account or contract; null for contract
+        creation transactions
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: erc20_ethereum
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Address of the account that initiated and signed this transaction
+    - name: to
+      description: Address of the recipient account or contract; null for contract
+        creation transactions
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: erc20_gnosis
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Address of the account that initiated and signed this transaction
+    - name: to
+      description: Address of the recipient account or contract; null for contract
+        creation transactions
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: erc20_optimism
+  description: Standard ERC20 Fungible Token event tables for optimism
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Sender of tokens
+    - name: to
+      description: Recipient of tokens
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: erc20_polygon
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Address of the account that initiated and signed this transaction
+    - name: to
+      description: Address of the recipient account or contract; null for contract
+        creation transactions
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: erc20_zkevm
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Address of the account that initiated and signed this transaction
+    - name: to
+      description: Address of the recipient account or contract; null for contract
+        creation transactions
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
+- name: gyroscope
+  tables:
+  - name: gyro_tokens
+- name: gyroscope_arbitrum
+  tables:
+  - name: Gyro2CLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+  - name: GyroECLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: gyroscope_avalanche_c
+  tables:
+  - name: GyroECLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ECLP Pool contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: gyroscope_base
+  tables:
+  - name: GyroECLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: gyroscope_ethereum
+  tables:
+  - name: GyroECLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: gyroscope_gnosis
+  tables:
+  - name: GyroECLPPoolFactory_call_create
+    description: Decoded table of registered pools on the Gyroscope ECLP contract.
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: gyroscope_optimism
+  tables:
+  - name: GyroECLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: gyroscope_polygon
+  tables:
+  - name: GyroECLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+      description: Address of the ComposableStablePoolFactory contract
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: gyroscope_zkevm
+  tables:
+  - name: GyroECLPPoolFactory_call_create
+    description: 'Decoded table of registered pools on the Gyroscope ECLP contract.
+
+      '
+    columns:
+    - *id001
+    - *id002
+    - *id003
+    - *id004
+    - *id005
+    - name: capManager
+    - name: capParams
+    - name: contract_address
+    - name: derivedECLPParams
+    - name: eclpParams
+    - name: name
+    - *id006
+    - *id007
+    - name: pauseManager
+    - name: pauseParams
+    - *id008
+    - *id016
+    - *id009
+    - *id013
+- name: labels
+  tables:
+  - name: balancer_v1_pools_ethereum
+  - name: balancer_cowswap_amm_pools
+  - name: balancer_v2_pools
+  - name: balancer_v2_pools_arbitrum
+  - name: balancer_v2_pools_avalanche_c
+  - name: balancer_v2_pools_base
+  - name: balancer_v2_pools_ethereum
+  - name: balancer_v2_pools_gnosis
+  - name: balancer_v2_pools_optimism
+  - name: balancer_v2_pools_polygon
+  - name: balancer_v2_pools_zkevm
+  - name: balancer_v3_pools
+  - name: balancer_v3_pools_arbitrum
+  - name: balancer_v3_pools_base
+  - name: balancer_v3_pools_ethereum
+  - name: balancer_v3_pools_gnosis
+  - name: balancer_v3_pools_plasma
+  - name: labels_balancer_v1_pools
+- name: prices
+  tables:
+  - name: hour
+    description: Hourly token prices aggregated from various sources
+    columns:
+    - name: blockchain
+      description: Native blockchain of the token
+      type: varchar
+    - name: contract_address
+      description: Contract address of the token
+      type: varbinary
+    - name: symbol
+      description: Token symbol
+      type: varchar
+    - name: timestamp
+      description: UTC timestamp for the hour
+      type: timestamp(3) with time zone
+    - name: price
+      description: USD price of a token
+      type: double
+    - name: decimals
+      description: Number of decimals for the token contract
+      type: bigint
+    - name: volume
+      description: Trading volume in USD
+      type: double
+    - name: source
+      description: Source of the price data
+      type: varchar
+    - name: source_timestamp
+      description: Original timestamp from the source
+      type: timestamp(3) with time zone
+  - name: usd
+    description: USD prices across blockchains
+    meta:
+      docs_slug: /curated/asset-tracking/prices/prices
+    columns:
+    - name: minute
+      description: UTC event block time truncated to the minute mark
+    - name: blockchain
+      description: Native blockchain of the token
+    - name: contract_address
+      description: Contract address of the token
+    - name: symbol
+      description: Token symbol
+    - name: price
+      description: USD price of a token
+- name: tokens
+  tables:
+  - name: erc20
+    columns:
+    - name: blockchain
+      data_type: varchar
+    - name: contract_address
+      data_type: varbinary
+    - name: symbol
+      data_type: varchar
+    - name: decimals
+      data_type: integer
+- name: tokens_ethereum
+  tables:
+  - name: erc20
+    columns:
+    - name: contract_address
+      data_type: varbinary
+    - name: symbol
+      data_type: varchar
+    - name: decimals
+      data_type: integer
+- name: xavefinance_arbitrum
+  tables:
+  - name: FXPoolDeployer_call_newFXPool
+    columns:
+    - name: contract_address
+    - name: call_tx_hash
+    - name: call_success
+    - name: call_trace_address
+    - name: call_block_time
+    - name: call_block_number
+    - name: _baseToken
+    - name: _baseOracle
+    - name: _initialDepositInNumeraire
+    - name: _params
+    - name: output_balancerPoolId
+    - name: output_fxpoolAddr
+- name: xavefinance_avalanche_c
+  tables:
+  - name: FXPoolDeployer_call_newFXPool
+    columns:
+    - name: contract_address
+    - name: call_tx_hash
+    - name: call_success
+    - name: call_trace_address
+    - name: call_block_time
+    - name: call_block_number
+    - name: _baseToken
+    - name: _baseOracle
+    - name: _initialDepositInNumeraire
+    - name: _params
+    - name: output_balancerPoolId
+    - name: output_fxpoolAddr
+  - name: FXPoolFactory_call_newFXPool
+    columns:
+    - name: contract_address
+    - name: call_tx_hash
+    - name: call_success
+    - name: call_trace_address
+    - name: call_block_time
+    - name: call_block_number
+    - name: _assetsToRegister
+    - name: _name
+    - name: _percentFee
+    - name: _symbol
+    - name: output_0
+    - name: vault
+- name: xavefinance_ethereum
+  tables:
+  - name: FXPoolDeployer_call_newFXPool
+    columns:
+    - name: contract_address
+    - name: call_tx_hash
+    - name: call_success
+    - name: call_trace_address
+    - name: call_block_time
+    - name: call_block_number
+    - name: _baseToken
+    - name: _baseOracle
+    - name: _initialDepositInNumeraire
+    - name: _params
+    - name: output_balancerPoolId
+    - name: output_fxpoolAddr
+  - name: FXPoolFactory_call_newFXPool
+    columns:
+    - name: contract_address
+    - name: call_tx_hash
+    - name: call_success
+    - name: call_trace_address
+    - name: call_block_time
+    - name: call_block_number
+    - name: _assetsToRegister
+    - name: _name
+    - name: _percentFee
+    - name: _symbol
+    - name: output_0
+    - name: vault
+- name: xavefinance_polygon
+  tables:
+  - name: FXPoolFactory_call_newFXPool
+    columns:
+    - name: contract_address
+    - name: call_tx_hash
+    - name: call_success
+    - name: call_trace_address
+    - name: call_block_time
+    - name: call_block_number
+    - name: _assetsToRegister
+    - name: _name
+    - name: _percentFee
+    - name: _symbol
+    - name: output_0
+    - name: vault

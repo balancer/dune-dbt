@@ -8,17 +8,14 @@
 
 {% macro generate_schema_name(custom_schema_name, node) -%}
 
-    {%- set dev_suffix = env_var('DEV_SCHEMA_SUFFIX', '') -%}
+    {# Base schema is set in profiles.yml per Dune docs (team or team__tmp_*) #}
+    {%- set base_schema = target.schema -%}
 
-    {%- if target.name == 'prod' -%}
-        {# prod environment, writes to target schema #}
-        {{ target.schema }}
-    {%- elif target.name != 'prod' and dev_suffix != '' -%}
-        {# dev environments, writes to target schema with dev suffix #}
-        {{ target.schema }}__tmp_{{ dev_suffix | trim }}
+    {# If a model supplies a custom schema, append it to avoid collisions #}
+    {%- if custom_schema_name is not none -%}
+        {{ base_schema }}__{{ custom_schema_name | trim }}
     {%- else -%}
-        {# default to dev environment, no dev suffix #}
-        {{ target.schema }}__tmp_
+        {{ base_schema }}
     {%- endif -%}
 
 {%- endmacro %}
