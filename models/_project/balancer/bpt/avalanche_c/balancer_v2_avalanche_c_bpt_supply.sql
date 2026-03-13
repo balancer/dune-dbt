@@ -5,7 +5,6 @@
         schema = 'balancer_v2_avalanche_c',
         alias = 'bpt_supply',
         materialized = 'table',
-        file_format = 'delta'
 
     )
 }}

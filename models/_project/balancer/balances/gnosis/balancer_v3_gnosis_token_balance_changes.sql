@@ -4,7 +4,6 @@
         schema = 'balancer_v3_gnosis',
         alias = 'token_balance_changes',
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

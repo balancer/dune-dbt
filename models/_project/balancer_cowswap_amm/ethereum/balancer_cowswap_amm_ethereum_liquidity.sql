@@ -5,7 +5,6 @@
         schema='balancer_cowswap_amm_' + blockchain,
         alias = 'liquidity',
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

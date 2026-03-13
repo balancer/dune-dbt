@@ -3,7 +3,6 @@
         schema='balancer_v1_ethereum',
         alias = 'liquidity',       
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

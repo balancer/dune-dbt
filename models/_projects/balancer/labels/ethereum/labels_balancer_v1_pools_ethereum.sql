@@ -2,7 +2,6 @@
     schema = 'labels',
     alias = 'balancer_v1_pools_ethereum',
     materialized = 'incremental',
-    file_format = 'delta',
     incremental_strategy = 'merge',
     unique_key = ['address']
     , post_hook='{{ hide_spells() }}'

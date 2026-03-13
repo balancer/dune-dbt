@@ -3,7 +3,6 @@
         schema = 'balancer_cowswap_amm_arbitrum',
         alias = 'balances',
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

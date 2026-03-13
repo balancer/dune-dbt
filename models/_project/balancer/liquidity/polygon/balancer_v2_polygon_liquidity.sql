@@ -6,7 +6,6 @@
         schema = 'balancer_v2_polygon',
         alias = 'liquidity',
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

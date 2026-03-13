@@ -6,7 +6,6 @@
         schema = 'balancer_v3_arbitrum',
         alias = 'liquidity',
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

@@ -28,6 +28,11 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+# Required by incremental_predicate macro (used in transfers_bpt models)
+vars:
+  DBT_ENV_INCREMENTAL_TIME_UNIT: 'day'
+  DBT_ENV_INCREMENTAL_TIME: '1'
+
 models:
   balancer:
     # Config indicated by + and applies to all files under models/templates/

@@ -5,7 +5,6 @@
         schema = 'balancer_v3_ethereum',
         alias = 'bpt_prices',        
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

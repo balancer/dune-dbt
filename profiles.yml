@@ -1,18 +1,19 @@
 # dbt profile for Dune API connection
+# See: https://github.com/duneanalytics/dune-dbt-template
+# Dune uses LDAP auth (not JWT): user is always 'dune', API key goes in password
 balancer:
   target: dev
   outputs:
     dev:
       type: trino
-      method: jwt
-      user: "{{ env_var('DUNE_TEAM_NAME') }}"
-      jwt_token: "{{ env_var('DUNE_API_KEY') }}"
+      method: ldap
+      user: dune  # do not change: user is always 'dune'
+      password: "{{ env_var('DUNE_API_KEY') }}"
       host: trino.api.dune.com
       port: 443
-      database: dune
+      catalog: dune  # do not change: catalog is always 'dune'
       schema: "{{ env_var('DUNE_TEAM_NAME') }}__tmp_{{ env_var('DEV_SCHEMA_SUFFIX', '') }}"
       threads: 4
-      http_timeout: 120
       http_scheme: https
       cert: true
       session_properties:
@@ -20,15 +21,14 @@ balancer:
       timezone: UTC
     prod:
       type: trino
-      method: jwt
-      user: "{{ env_var('DUNE_TEAM_NAME') }}"
-      jwt_token: "{{ env_var('DUNE_API_KEY') }}"
+      method: ldap
+      user: dune  # do not change: user is always 'dune'
+      password: "{{ env_var('DUNE_API_KEY') }}"
       host: trino.api.dune.com
       port: 443
-      database: dune
+      catalog: dune  # do not change: catalog is always 'dune'
       schema: "{{ env_var('DUNE_TEAM_NAME') }}"
       threads: 4
-      http_timeout: 120
       http_scheme: https
       cert: true
       session_properties:

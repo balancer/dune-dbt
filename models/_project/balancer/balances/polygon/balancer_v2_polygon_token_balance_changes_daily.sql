@@ -5,7 +5,6 @@
         schema = 'balancer_v2_polygon',
         alias = 'token_balance_changes_daily', 
         materialized = 'table',
-        file_format = 'delta'
     )
 }}
 

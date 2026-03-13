@@ -5,7 +5,6 @@
         schema='balancer_v3_gnosis',
         alias = 'bpt_supply',
         materialized = 'table',
-        file_format = 'delta'
 
     )
 }}
