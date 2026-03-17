@@ -2,8 +2,7 @@
 
 {{
     config(
-       schema = 'balancer_v3_base',
-        alias = 'transfers_bpt',
+        alias = 'balancer_v3_base_transfers_bpt',
         partition_by = ['block_month'],
         materialized = 'incremental',
         incremental_strategy = 'merge',

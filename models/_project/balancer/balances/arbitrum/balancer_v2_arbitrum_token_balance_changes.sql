@@ -1,8 +1,7 @@
 {% set blockchain = 'arbitrum' %}
 
 {{ config(
-        schema = 'balancer_v2_arbitrum',
-        alias = 'token_balance_changes',
+        alias = 'balancer_v2_arbitrum_token_balance_changes',
         materialized = 'table',
     )
 }}

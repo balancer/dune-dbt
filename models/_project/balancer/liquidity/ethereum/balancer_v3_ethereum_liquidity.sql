@@ -3,8 +3,7 @@
 
 {{
     config(
-        schema = 'balancer_v3_ethereum',
-        alias = 'liquidity',
+        alias = 'balancer_v3_ethereum_liquidity',
         materialized = 'table',
     )
 }}

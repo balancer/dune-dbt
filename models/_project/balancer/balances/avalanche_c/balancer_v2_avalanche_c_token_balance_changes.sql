@@ -1,8 +1,7 @@
 {% set blockchain = 'avalanche_c' %}
 
 {{ config(
-        schema = 'balancer_v2_avalanche_c',
-        alias = 'token_balance_changes',
+        alias = 'balancer_v2_avalanche_c_token_balance_changes',
         materialized = 'table',
     )
 }}

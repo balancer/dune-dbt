@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema='balancer_v2_ethereum',
-        alias = 'bpt_supply',
+        alias = 'balancer_v2_ethereum_bpt_supply',
         materialized = 'table',
 
     )

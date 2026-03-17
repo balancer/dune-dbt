@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_base',
-        alias = 'token_balance_changes_daily', 
+        alias = 'balancer_v2_base_token_balance_changes_daily', 
         materialized = 'table',
     )
 }}

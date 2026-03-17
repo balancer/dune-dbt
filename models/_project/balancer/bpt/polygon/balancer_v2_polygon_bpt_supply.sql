@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_polygon',
-        alias = 'bpt_supply',
+        alias = 'balancer_v2_polygon_bpt_supply',
         materialized = 'table',
     )
 }}

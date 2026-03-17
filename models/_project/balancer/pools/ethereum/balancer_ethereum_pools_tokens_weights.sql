@@ -1,6 +1,5 @@
 {{ config(
-        schema = 'balancer_ethereum',
-        alias = 'pools_tokens_weights',
+        alias = 'balancer_ethereum_pools_tokens_weights',
         
         )
 }}

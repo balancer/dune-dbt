@@ -1,6 +1,5 @@
 {{ config(
-    schema = 'balancer',
-    alias = 'pools_tokens_weights'
+    alias = 'balancer_pools_tokens_weights'
     , post_hook='{{ hide_spells() }}'
     )
 }}

@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v3_arbitrum',
-        alias = 'bpt_prices',        
+        alias = 'balancer_v3_arbitrum_bpt_prices',        
         materialized = 'table',
     )
 }}

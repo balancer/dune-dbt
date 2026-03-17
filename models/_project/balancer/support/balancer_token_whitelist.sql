@@ -1,5 +1,4 @@
 {{ config(
-    schema = 'balancer',
     alias = 'token_whitelist'
     )
 }}

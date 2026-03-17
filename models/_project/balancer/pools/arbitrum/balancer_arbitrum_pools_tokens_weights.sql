@@ -1,6 +1,5 @@
 {{ config(
-        schema = 'balancer_arbitrum',
-        alias = 'pools_tokens_weights',
+        alias = 'balancer_arbitrum_pools_tokens_weights',
         
         )
 }}

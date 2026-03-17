@@ -1,6 +1,5 @@
 {{ config(
-        schema = 'balancer_avalanche_c',
-        alias = 'pools_tokens_weights',
+        alias = 'balancer_avalanche_c_pools_tokens_weights',
         )
 }}
 

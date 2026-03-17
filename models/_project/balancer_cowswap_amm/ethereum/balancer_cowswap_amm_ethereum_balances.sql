@@ -1,7 +1,6 @@
 {{
     config(
-        schema = 'balancer_cowswap_amm_ethereum',
-        alias = 'balances',
+        alias = 'balancer_cowswap_amm_ethereum_balances',
         materialized = 'table',
     )
 }}

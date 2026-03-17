@@ -1,7 +1,6 @@
 {{
     config(
-        schema='balancer_cowswap_amm',
-        alias = 'liquidity',     
+        alias = 'balancer_cowswap_amm_liquidity',     
         materialized = 'view'
     )
 }}

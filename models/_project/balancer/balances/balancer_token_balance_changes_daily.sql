@@ -1,6 +1,5 @@
 {{ config(
-    schema = 'balancer',
-    alias = 'token_balance_changes_daily'
+    alias = 'balancer_token_balance_changes_daily'
     , post_hook='{{ hide_spells() }}'
     )
 }}

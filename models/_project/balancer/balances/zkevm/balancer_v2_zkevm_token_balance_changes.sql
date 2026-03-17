@@ -1,8 +1,7 @@
 {% set blockchain = 'zkevm' %}
 
 {{ config(
-        schema = 'balancer_v2_zkevm',
-        alias = 'token_balance_changes',
+        alias = 'balancer_v2_zkevm_token_balance_changes',
         materialized = 'table',
     )
 }}

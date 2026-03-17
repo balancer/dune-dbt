@@ -3,8 +3,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_avalanche_c',
-        alias = 'liquidity',
+        alias = 'balancer_v2_avalanche_c_liquidity',
         materialized = 'table',
     )
 }}

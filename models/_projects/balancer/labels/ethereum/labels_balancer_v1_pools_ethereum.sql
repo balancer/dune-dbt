@@ -1,5 +1,4 @@
 {{config(
-    schema = 'labels',
     alias = 'balancer_v1_pools_ethereum',
     materialized = 'incremental',
     incremental_strategy = 'merge',

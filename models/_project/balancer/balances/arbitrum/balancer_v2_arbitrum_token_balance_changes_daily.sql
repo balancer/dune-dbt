@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_arbitrum',
-        alias = 'token_balance_changes_daily', 
+        alias = 'balancer_v2_arbitrum_token_balance_changes_daily', 
         materialized = 'table',
     )
 }}

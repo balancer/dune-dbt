@@ -1,5 +1,4 @@
 {{config(
-        schema = 'labels',
         alias = 'balancer_v3_pools'
         , post_hook='{{ hide_spells() }}'
     )

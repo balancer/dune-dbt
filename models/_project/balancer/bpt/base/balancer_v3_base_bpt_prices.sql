@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v3_base',
-        alias = 'bpt_prices',        
+        alias = 'balancer_v3_base_bpt_prices',        
         materialized = 'table',
     )
 }}

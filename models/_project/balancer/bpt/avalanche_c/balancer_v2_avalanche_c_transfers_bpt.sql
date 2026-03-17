@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_avalanche_c',
-        alias = 'transfers_bpt',
+        alias = 'balancer_v2_avalanche_c_transfers_bpt',
         partition_by = ['block_month'],
         materialized = 'incremental',
         incremental_strategy = 'merge',

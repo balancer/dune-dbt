@@ -1,7 +1,6 @@
 {{
     config(
-        schema = 'balancer_cowswap_amm_arbitrum',
-        alias = 'balances',
+        alias = 'balancer_cowswap_amm_arbitrum_balances',
         materialized = 'table',
     )
 }}

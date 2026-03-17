@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_polygon',
-        alias = 'transfers_bpt',
+        alias = 'balancer_v2_polygon_transfers_bpt',
         partition_by = ['block_month'],
         materialized = 'incremental',
         incremental_strategy = 'merge',

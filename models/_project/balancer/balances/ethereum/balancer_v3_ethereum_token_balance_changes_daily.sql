@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v3_ethereum',
-        alias = 'token_balance_changes_daily', 
+        alias = 'balancer_v3_ethereum_token_balance_changes_daily', 
         materialized = 'table',
     )
 }}

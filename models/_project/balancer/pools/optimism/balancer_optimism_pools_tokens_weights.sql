@@ -1,6 +1,5 @@
 {{ config(
-        schema = 'balancer_optimism',
-        alias = 'pools_tokens_weights'
+        alias = 'balancer_optimism_pools_tokens_weights'
         )
 }}
 

@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_optimism',
-        alias = 'bpt_supply',
+        alias = 'balancer_v2_optimism_bpt_supply',
         materialized = 'table',
     )
 }}

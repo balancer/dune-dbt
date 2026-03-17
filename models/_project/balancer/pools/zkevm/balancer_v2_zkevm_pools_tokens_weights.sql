@@ -1,7 +1,6 @@
 {{
     config(
-        schema='balancer_v2_zkevm',
-        alias = 'pools_tokens_weights',
+        alias = 'balancer_v2_zkevm_pools_tokens_weights',
         materialized = 'incremental',
         incremental_strategy = 'merge',
         unique_key = ['pool_id', 'token_address']

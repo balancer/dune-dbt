@@ -7,11 +7,11 @@ balancer:
     dev:
       type: trino
       method: ldap
-      user: dune  # do not change: user is always 'dune'
+      user: dune # do not change: user is always 'dune'
       password: "{{ env_var('DUNE_API_KEY') }}"
       host: trino.api.dune.com
       port: 443
-      catalog: dune  # do not change: catalog is always 'dune'
+      catalog: dune # do not change: catalog is always 'dune'
       schema: "{{ env_var('DUNE_TEAM_NAME') }}__tmp_{{ env_var('DEV_SCHEMA_SUFFIX', '') }}"
       threads: 4
       http_scheme: https
@@ -22,11 +22,11 @@ balancer:
     prod:
       type: trino
       method: ldap
-      user: dune  # do not change: user is always 'dune'
+      user: dune # do not change: user is always 'dune'
       password: "{{ env_var('DUNE_API_KEY') }}"
       host: trino.api.dune.com
       port: 443
-      catalog: dune  # do not change: catalog is always 'dune'
+      catalog: dune # do not change: catalog is always 'dune'
       schema: "{{ env_var('DUNE_TEAM_NAME') }}"
       threads: 4
       http_scheme: https

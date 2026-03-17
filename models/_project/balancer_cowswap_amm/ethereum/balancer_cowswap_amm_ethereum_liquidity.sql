@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema='balancer_cowswap_amm_' + blockchain,
-        alias = 'liquidity',
+        alias = 'balancer_cowswap_amm_ethereum_liquidity',
         materialized = 'table',
     )
 }}

@@ -1,7 +1,6 @@
 {{
     config(
-        schema = 'balancer_ethereum',
-        alias = 'balances'
+        alias = 'balancer_ethereum_balances'
         , post_hook='{{ hide_spells() }}'
     )
 }}

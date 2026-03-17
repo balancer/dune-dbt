@@ -1,5 +1,4 @@
 {{config(
-  schema = 'labels',
   alias = 'balancer_v2_pools_gnosis'
   , post_hook='{{ hide_spells() }}'
 )}}

@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_zkevm',
-        alias = 'bpt_prices',        
+        alias = 'balancer_v2_zkevm_bpt_prices',        
         materialized = 'table',
     )
 }}

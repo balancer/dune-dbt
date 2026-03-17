@@ -1,6 +1,5 @@
 {{ config(
-        schema = 'balancer',
-        alias = 'liquidity'
+        alias = 'balancer_liquidity'
         , post_hook='{{ hide_spells() }}'
         )
 }}

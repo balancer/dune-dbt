@@ -2,8 +2,7 @@
 
 {{
     config(
-        schema = 'balancer_v2_zkevm',
-        alias = 'bpt_supply',
+        alias = 'balancer_v2_zkevm_bpt_supply',
         materialized = 'table',
     )
 }}

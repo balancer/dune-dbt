@@ -2,8 +2,7 @@
 
 {{
     config(
-       schema = 'balancer_v3_ethereum',
-        alias = 'transfers_bpt',
+        alias = 'balancer_v3_ethereum_transfers_bpt',
         partition_by = ['block_month'],
         materialized = 'incremental',
         incremental_strategy = 'merge',

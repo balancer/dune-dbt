@@ -12,7 +12,7 @@
   {%- if ("%s" % validated_contributors) == "null" -%}
     {%- do exceptions.raise_compiler_error("Invalid contributors '%s'. The list of contributors must be valid JSON." % contributors) -%}
   {%- endif -%}
-  {%- if target.name == 'prod' -%}
+  {%- if target.name == 'prod' and env_var('DUNE_SKIP_VIEW_PROPERTIES', 'false') != 'true' -%}
     {%- set properties = {
             'dune.public': 'true',
             'dune.data_explorer.blockchains':  blockchains | as_text,
@@ -34,7 +34,7 @@
 {%- endmacro -%}
 
 {% macro hide_spells() %}
-  {%- if target.name == 'prod' -%}
+  {%- if target.name == 'prod' and env_var('DUNE_SKIP_VIEW_PROPERTIES', 'false') != 'true' -%}
     {%- set properties = {
             'dune.public': 'false',
             'dune.data_explorer.category': 'abstraction',
