@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: balancer_protocol_fee
+    meta:
+      blockchain: arbitrum, base, ethereum, gnosis
+      project: balancer_v3
+      contributors: gustavotorres
+    config:
+      tags: ['arbitrum', 'base', 'ethereum', 'gnosis', 'fees']
+    description: >
+      Daily Balancer V3 protocol fee aggregates for active Wave-1 chains.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - blockchain
+            - version
+            - day
+            - pool_id
+            - token_address
+            - fee_type

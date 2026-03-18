@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: balancer_v3_base_protocol_fee
+    meta:
+      blockchain: base
+      project: balancer_v3
+      contributors: gustavotorres
+    config:
+      tags: ['base', 'revenue', 'fees']
+    description: >
+      Daily protocol fees and treasury split for Balancer V3 pools on base.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - day
+            - pool_id
+            - fee_type
+            - token_address
