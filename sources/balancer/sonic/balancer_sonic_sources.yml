@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: beethoven_x_v3_sonic
+    description: >
+      Decoded tables related to Beethoven X V3 on Sonic for ERC4626 wrapper token mapping and pricing.
+    tables:
+      - name: Vault_evt_LiquidityAddedToBuffer
+
+      - name: Vault_evt_Wrap
+
+      - name: Vault_evt_Unwrap

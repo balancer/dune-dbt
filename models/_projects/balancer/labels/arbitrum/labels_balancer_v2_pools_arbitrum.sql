@@ -1,5 +1,5 @@
 {{config(
-  alias = 'balancer_v2_pools_arbitrum'
+  alias = 'v2_pools_arbitrum'
   , post_hook='{{ hide_spells() }}'
 )}}
 

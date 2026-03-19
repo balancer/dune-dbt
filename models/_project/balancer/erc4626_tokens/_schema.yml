@@ -3,20 +3,20 @@ version: 2
 models:
   - name: balancer_v3_erc4626_token_mapping
     meta:
-      blockchain: arbitrum, base, ethereum, gnosis
+      blockchain: arbitrum, base, ethereum, gnosis, sonic
       project: balancer_v3
       contributors: gustavotorres
     config:
-      tags: ['arbitrum', 'base', 'ethereum', 'gnosis', 'erc4626', 'mapping']
+      tags: ['arbitrum', 'base', 'ethereum', 'gnosis', 'sonic', 'erc4626', 'mapping']
     description: >
-      Balancer V3 ERC4626 token mapping aggregated for active Wave-1 chains.
+      Balancer V3 ERC4626 token mapping aggregated for active chains.
 
   - name: balancer_v3_erc4626_token_prices
     meta:
-      blockchain: arbitrum, base, ethereum, gnosis
+      blockchain: arbitrum, base, ethereum, gnosis, sonic
       project: balancer_v3
       contributors: gustavotorres
     config:
-      tags: ['arbitrum', 'base', 'ethereum', 'gnosis', 'erc4626', 'prices']
+      tags: ['arbitrum', 'base', 'ethereum', 'gnosis', 'sonic', 'erc4626', 'prices']
     description: >
-      Balancer V3 ERC4626 token prices aggregated for active Wave-1 chains.
+      Balancer V3 ERC4626 token prices aggregated for active chains.

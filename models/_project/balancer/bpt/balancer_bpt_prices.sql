@@ -1,5 +1,5 @@
 {{ config(
-    alias = 'balancer_bpt_prices'
+    alias = 'bpt_prices'
     , post_hook='{{ hide_spells() }}'
     )
 }}

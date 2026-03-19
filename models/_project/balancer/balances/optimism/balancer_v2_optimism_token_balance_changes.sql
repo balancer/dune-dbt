@@ -1,7 +1,7 @@
 {% set blockchain = 'optimism' %}
 
 {{ config(
-        alias = 'balancer_v2_optimism_token_balance_changes',
+        alias = 'v2_optimism_token_balance_changes',
         materialized = 'table',
     )
 }}

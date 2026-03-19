@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_base_lbps',
+        alias = 'v3_base_lbps',
         materialized = 'table'
     )
 }}

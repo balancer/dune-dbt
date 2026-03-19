@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_arbitrum_lbps',
+        alias = 'v3_arbitrum_lbps',
         materialized = 'table'
     )
 }}

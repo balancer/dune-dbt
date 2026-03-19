@@ -1,5 +1,5 @@
 {{config(
-  alias = 'balancer_v2_pools_zkevm'
+  alias = 'v2_pools_zkevm'
   , post_hook='{{ hide_spells() }}'
 )}}
 

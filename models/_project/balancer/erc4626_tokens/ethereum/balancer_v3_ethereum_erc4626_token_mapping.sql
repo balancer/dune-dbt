@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_ethereum_erc4626_token_mapping',
+        alias = 'v3_ethereum_erc4626_token_mapping',
         materialized = 'table'
     )
 }}

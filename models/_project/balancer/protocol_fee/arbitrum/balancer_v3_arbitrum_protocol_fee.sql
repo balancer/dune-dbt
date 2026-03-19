@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_arbitrum_protocol_fee',
+        alias = 'v3_arbitrum_protocol_fee',
         materialized = 'table'
     )
 }}

@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_gnosis_erc4626_token_mapping',
+        alias = 'v3_gnosis_erc4626_token_mapping',
         materialized = 'table'
     )
 }}

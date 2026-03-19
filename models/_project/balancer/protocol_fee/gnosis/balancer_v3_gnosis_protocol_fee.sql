@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_gnosis_protocol_fee',
+        alias = 'v3_gnosis_protocol_fee',
         materialized = 'table'
     )
 }}

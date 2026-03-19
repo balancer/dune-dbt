@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_cowswap_amm_ethereum_liquidity',
+        alias = 'cowswap_amm_ethereum_liquidity',
         materialized = 'table',
     )
 }}

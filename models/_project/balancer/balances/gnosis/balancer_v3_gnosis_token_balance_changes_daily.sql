@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_gnosis_token_balance_changes_daily', 
+        alias = 'v3_gnosis_token_balance_changes_daily', 
         materialized = 'table',
     )
 }}

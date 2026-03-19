@@ -1,5 +1,5 @@
 {{ config(
-    alias = 'balancer_v3_erc4626_token_prices'
+    alias = 'v3_erc4626_token_prices'
     , post_hook='{{ hide_spells() }}'
     )
 }}
@@ -8,7 +8,8 @@
     ref('balancer_v3_ethereum_erc4626_token_prices'),
     ref('balancer_v3_gnosis_erc4626_token_prices'),
     ref('balancer_v3_arbitrum_erc4626_token_prices'),
-    ref('balancer_v3_base_erc4626_token_prices')
+    ref('balancer_v3_base_erc4626_token_prices'),
+    ref('balancer_v3_sonic_erc4626_token_prices')
 ] %}
 
 SELECT *

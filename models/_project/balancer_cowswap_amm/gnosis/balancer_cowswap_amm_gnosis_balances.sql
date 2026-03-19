@@ -1,6 +1,6 @@
 {{
     config(
-        alias = 'balancer_cowswap_amm_gnosis_balances',
+        alias = 'cowswap_amm_gnosis_balances',
         materialized = 'table',
     )
 }}

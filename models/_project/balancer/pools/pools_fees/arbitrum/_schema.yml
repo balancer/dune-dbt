@@ -1,0 +1,4 @@
+version: 2
+
+models:
+  - name: balancer_v3_arbitrum_pools_fees

@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_base_bpt_supply_changes_daily',
+        alias = 'v3_base_bpt_supply_changes_daily',
         materialized = 'table'
     )
 }}

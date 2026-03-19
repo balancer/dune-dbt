@@ -1,7 +1,7 @@
 {% set blockchain = 'gnosis' %}
 
 {{ config(
-        alias = 'balancer_v3_gnosis_token_balance_changes',
+        alias = 'v3_gnosis_token_balance_changes',
         materialized = 'table',
     )
 }}

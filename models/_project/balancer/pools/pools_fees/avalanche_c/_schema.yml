@@ -1,0 +1,4 @@
+version: 2
+
+models:
+  - name: balancer_v3_avalanche_c_pools_fees

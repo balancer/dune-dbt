@@ -1,5 +1,5 @@
 {{ config(
-        alias = 'balancer_zkevm_pools_tokens_weights',
+        alias = 'zkevm_pools_tokens_weights',
         )
 }}
 

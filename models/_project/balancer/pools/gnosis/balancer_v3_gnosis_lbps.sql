@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_gnosis_lbps',
+        alias = 'v3_gnosis_lbps',
         materialized = 'table'
     )
 }}

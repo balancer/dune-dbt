@@ -1,5 +1,5 @@
 {{ config(
-    alias = 'balancer_v3_lbps'
+    alias = 'v3_lbps'
     , post_hook='{{ hide_spells() }}'
     )
 }}

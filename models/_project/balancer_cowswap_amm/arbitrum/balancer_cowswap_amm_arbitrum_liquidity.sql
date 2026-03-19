@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_cowswap_amm_arbitrum_liquidity',
+        alias = 'cowswap_amm_arbitrum_liquidity',
         materialized = 'table',
     )
 }}

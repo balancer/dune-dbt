@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_arbitrum_erc4626_token_mapping',
+        alias = 'v3_arbitrum_erc4626_token_mapping',
         materialized = 'table'
     )
 }}

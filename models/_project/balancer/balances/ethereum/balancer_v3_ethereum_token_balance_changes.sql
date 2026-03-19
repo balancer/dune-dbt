@@ -1,7 +1,7 @@
 {% set blockchain = 'ethereum' %}
 
 {{ config(
-        alias = 'balancer_v3_ethereum_token_balance_changes',
+        alias = 'v3_ethereum_token_balance_changes',
         materialized = 'table',
     )
 }}

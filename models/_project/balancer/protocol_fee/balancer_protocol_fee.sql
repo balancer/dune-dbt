@@ -1,5 +1,5 @@
 {{ config(
-    alias = 'balancer_protocol_fee'
+    alias = 'protocol_fee'
     , post_hook='{{ hide_spells() }}'
     )
 }}

@@ -3,7 +3,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_polygon_liquidity',
+        alias = 'v2_polygon_liquidity',
         materialized = 'table',
     )
 }}

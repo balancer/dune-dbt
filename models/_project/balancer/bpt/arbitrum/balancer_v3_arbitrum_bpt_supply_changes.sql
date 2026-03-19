@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_arbitrum_bpt_supply_changes',
+        alias = 'v3_arbitrum_bpt_supply_changes',
         materialized = 'incremental',
         incremental_strategy = 'merge',
         unique_key = ['block_date', 'evt_tx_hash', 'evt_index', 'label'],

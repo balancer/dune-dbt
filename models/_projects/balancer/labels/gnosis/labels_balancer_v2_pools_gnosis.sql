@@ -1,5 +1,5 @@
 {{config(
-  alias = 'balancer_v2_pools_gnosis'
+  alias = 'v2_pools_gnosis'
   , post_hook='{{ hide_spells() }}'
 )}}
 

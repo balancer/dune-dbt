@@ -2,10 +2,10 @@
 
 {{
     config(
-        alias = 'balancer_v3_arbitrum_erc4626_token_prices',
+        alias = 'v3_arbitrum_erc4626_token_prices',
         materialized = 'incremental',
         incremental_strategy = 'merge',
-        unique_key = ['minute', 'wrapped_token'],
+        unique_key = ['minute', 'wrapped_token', 'underlying_token'],
         incremental_predicates = ["DBT_INTERNAL_DEST.minute >= date_trunc('day', now() - interval '4' day)"]
     )
 }}
@@ -63,6 +63,6 @@ SELECT
     underlying_token_symbol,
     decimals,
     APPROX_PERCENTILE(adjusted_price, 0.5) AS median_price,
-    LEAD(p.minute, 1, TIMESTAMP '9999-12-31 23:59:59') OVER (PARTITION BY wrappedToken ORDER BY p.minute) AS next_change
+    LEAD(p.minute, 1, TIMESTAMP '9999-12-31 23:59:59') OVER (PARTITION BY wrappedToken, underlying_token ORDER BY p.minute) AS next_change
 FROM price_join p
 GROUP BY 1, 2, 3, 4, 5, 6, 7

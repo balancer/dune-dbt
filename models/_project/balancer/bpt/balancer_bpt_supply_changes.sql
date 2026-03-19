@@ -1,5 +1,5 @@
 {{ config(
-    alias = 'balancer_bpt_supply_changes'
+    alias = 'bpt_supply_changes'
     , post_hook='{{ hide_spells() }}'
     )
 }}

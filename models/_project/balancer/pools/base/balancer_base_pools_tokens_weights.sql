@@ -1,5 +1,5 @@
 {{ config(
-        alias = 'balancer_base_pools_tokens_weights',
+        alias = 'base_pools_tokens_weights',
         
         )
 }}

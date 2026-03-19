@@ -3,7 +3,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_zkevm_liquidity',
+        alias = 'v2_zkevm_liquidity',
         materialized = 'table',
     )
 }}

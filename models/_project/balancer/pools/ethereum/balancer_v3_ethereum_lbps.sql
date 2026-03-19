@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_ethereum_lbps',
+        alias = 'v3_ethereum_lbps',
         materialized = 'table'
     )
 }}
