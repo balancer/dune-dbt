@@ -38,3 +38,7 @@ logs/
 
 # Compiled files
 *.pyc
+
+# JavaScript tooling (husky/lint-staged)
+node_modules/
+.husky/_/

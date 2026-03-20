@@ -1,0 +1,20 @@
+{
+  "name": "balancer-dune-dbt-hooks",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "precommit:dbt": "bash ./scripts/precommit_dbt_parse.sh"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2"
+  },
+  "lint-staged": {
+    "{models,macros,tests}/**/*.{sql,yml,yaml}": [
+      "npm run precommit:dbt"
+    ],
+    "{dbt_project.yml,packages.yml,profiles.yml}": [
+      "npm run precommit:dbt"
+    ]
+  }
+}

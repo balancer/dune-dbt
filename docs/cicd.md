@@ -11,16 +11,17 @@ GitHub provides and manages these runners - no infrastructure setup required on 
 ## Pull Request Workflow (CI)
 
 **Trigger:** Every pull request
-**File:** `.github/workflows/dbt_run.yml`
+**File:** `.github/workflows/dbt_ci.yml`
 
 ### What It Does
 
-1. Enforces branch is up-to-date with main
+1. Runs on every pull request affecting dbt project paths (or manual dispatch)
 2. Installs dependencies and dbt packages
-3. Runs modified models with `--full-refresh`
-4. Tests modified models
-5. Runs modified incremental models (incremental run)
-6. Tests modified incremental models again
+3. Compiles project and compares against main manifest
+4. Runs modified models with `--full-refresh`
+5. Tests modified models
+6. Runs modified incremental models (incremental run)
+7. Tests modified incremental models again
 
 ### PR Schema Isolation
 
@@ -52,6 +53,14 @@ uv run dbt test --select modified_model
 ```
 
 ✅ **Fix failing tests** - Don't skip tests or disable checks
+
+### Cost Control Policy
+
+The Dune integration CI runs on matching PR changes, so monitor credit usage:
+
+- Keep the quality workflow (`dbt_quality.yml`) as a zero-credit static validation baseline
+- Use `state:modified` in CI (already configured) to limit heavy runs to changed models
+- Use path filters to avoid triggering on irrelevant repository changes
 
 ## Production Workflow
 
@@ -101,6 +110,19 @@ DUNE_TEAM_NAME=your_team_name
 
 Optional - defaults to `'dune'` if not set.
 
+## Quality Workflow (No Dune Credits)
+
+**Trigger:** Every pull request affecting dbt project files  
+**File:** `.github/workflows/dbt_quality.yml`
+
+This workflow does not require `DUNE_API_KEY` and runs only static project checks:
+
+1. `uv sync --locked`
+2. `uv run dbt deps`
+3. `uv run dbt parse --no-partial-parse`
+
+Use this as the mandatory baseline check for every PR.
+
 ## Email Notifications
 
 To receive failure alerts:
@@ -119,8 +141,19 @@ To receive failure alerts:
 
 Runs when:
 
-- PR opened, synchronized, or reopened
-- Changes to: `models/`, `macros/`, `dbt_project.yml`, `profiles.yml`, `packages.yml`, workflow file
+- PR opened, synchronized, reopened, or marked ready for review
+- Changes to: `models/`, `macros/`, `tests/`, `dbt_project.yml`, `profiles.yml`, `packages.yml`, workflow file
+
+## Branch Protection (Required Checks)
+
+To block merges unless CI passes:
+
+1. Go to GitHub → Repository Settings → Branches
+2. Edit the protection rule for `main`
+3. Enable **Require status checks to pass before merging**
+4. Mark these checks as required:
+   - `parse` (from `dbt quality`)
+   - `dbt-ci` (from `dbt CI`)
 
 ### Production Workflow
 
@@ -148,6 +181,17 @@ dbt test output → specific test name → error message
 ```
 
 Query the model in Dune to investigate.
+
+### Main Manifest Missing in PR CI
+
+PR Dune CI depends on `prod-manifest-latest` uploaded by deploy workflow.
+
+If CI fails with missing manifest:
+
+1. Go to Actions → `dbt deploy`
+2. Run workflow on `main`
+3. Wait for completion (artifact upload)
+4. Re-run PR check
 
 ### Connection Errors
 
