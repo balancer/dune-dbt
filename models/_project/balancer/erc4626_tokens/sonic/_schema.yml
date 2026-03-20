@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: balancer_v3_sonic_erc4626_token_mapping
+    meta:
+      blockchain: sonic
+      project: balancer_v3
+      contributors: gustavotorres
+    config:
+      tags: ['sonic', 'erc4626', 'mapping']
+    description: >
+      Mapping between Balancer V3 ERC4626 wrapper tokens and underlying tokens on sonic.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - erc4626_token
+
+  - name: balancer_v3_sonic_erc4626_token_prices
+    meta:
+      blockchain: sonic
+      project: balancer_v3
+      contributors: gustavotorres
+    config:
+      tags: ['sonic', 'erc4626', 'prices']
+    description: >
+      Minute-level ERC4626 prices inferred from wrap/unwrap events and underlying token USD prices on sonic.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - minute
+            - wrapped_token
+            - underlying_token

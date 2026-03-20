@@ -1,5 +1,5 @@
 {{config(
-  alias = 'balancer_v2_pools_optimism'
+  alias = 'v2_pools_optimism'
   , post_hook='{{ hide_spells() }}'
 )}}
 

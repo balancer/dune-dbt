@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: balancer_v3_arbitrum_erc4626_token_mapping
+    meta:
+      blockchain: arbitrum
+      project: balancer_v3
+      contributors: gustavotorres
+    config:
+      tags: ['arbitrum', 'erc4626', 'mapping']
+    description: >
+      Mapping between Balancer V3 ERC4626 wrapper tokens and underlying tokens on arbitrum.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - erc4626_token
+
+  - name: balancer_v3_arbitrum_erc4626_token_prices
+    meta:
+      blockchain: arbitrum
+      project: balancer_v3
+      contributors: gustavotorres
+    config:
+      tags: ['arbitrum', 'erc4626', 'prices']
+    description: >
+      Minute-level ERC4626 prices inferred from wrap/unwrap events and underlying token USD prices on arbitrum.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - minute
+            - wrapped_token
+            - underlying_token

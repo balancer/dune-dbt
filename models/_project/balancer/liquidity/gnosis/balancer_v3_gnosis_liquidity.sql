@@ -3,7 +3,7 @@
 
 {{
     config(
-    alias = 'balancer_v3_gnosis_liquidity',
+    alias = 'v3_gnosis_liquidity',
         materialized = 'table',
     )
 }}

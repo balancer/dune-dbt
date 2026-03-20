@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_avalanche_c_bpt_prices',        
+        alias = 'v2_avalanche_c_bpt_prices',        
         materialized = 'table',
     )
 }}

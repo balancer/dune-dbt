@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_optimism_token_balance_changes_daily', 
+        alias = 'v2_optimism_token_balance_changes_daily', 
         materialized = 'table',
     )
 }}

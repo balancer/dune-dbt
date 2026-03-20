@@ -3,7 +3,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_ethereum_liquidity',
+        alias = 'v2_ethereum_liquidity',
         materialized = 'table',
     )
 }}

@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v3_gnosis_bpt_supply',
+        alias = 'v3_gnosis_bpt_supply',
         materialized = 'table',
 
     )

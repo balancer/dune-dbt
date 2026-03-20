@@ -1,5 +1,5 @@
 {{config(
-  alias = 'balancer_v2_pools_avalanche_c'
+  alias = 'v2_pools_avalanche_c'
   , post_hook='{{ hide_spells() }}'
 )}}
 

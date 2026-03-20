@@ -1,5 +1,5 @@
 {{config(
-        alias = 'balancer_v3_pools'
+        alias = 'v3_pools'
         , post_hook='{{ hide_spells() }}'
     )
 }}
@@ -13,3 +13,9 @@ UNION
 SELECT * FROM  {{ ref('labels_balancer_v3_pools_base') }}
 UNION
 SELECT * FROM  {{ ref('labels_balancer_v3_pools_plasma') }}
+UNION
+SELECT * FROM  {{ ref('labels_balancer_v3_pools_avalanche_c') }}
+UNION
+SELECT * FROM  {{ ref('labels_balancer_v3_pools_hyperevm') }}
+UNION
+SELECT * FROM  {{ ref('labels_balancer_v3_pools_monad') }}

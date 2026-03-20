@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_polygon_token_balance_changes_daily', 
+        alias = 'v2_polygon_token_balance_changes_daily', 
         materialized = 'table',
     )
 }}

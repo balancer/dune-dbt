@@ -1,5 +1,5 @@
 {{ config(
-        alias = 'balancer_ethereum_pools_tokens_weights',
+        alias = 'ethereum_pools_tokens_weights',
         
         )
 }}

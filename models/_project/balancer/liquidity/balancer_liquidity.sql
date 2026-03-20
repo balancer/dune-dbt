@@ -1,5 +1,5 @@
 {{ config(
-        alias = 'balancer_liquidity'
+        alias = 'liquidity'
         , post_hook='{{ hide_spells() }}'
         )
 }}

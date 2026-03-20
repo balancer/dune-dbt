@@ -433,14 +433,89 @@ models:
       - *model_name
       - *label_type
 
-  - name: labels_balancer_v3_pools
+  - name: labels_balancer_v3_pools_avalanche_c
     meta:
-      blockchain: arbitrum, base, ethereum, gnosis, plasma
+      blockchain: avalanche_c
       sector: labels
       project: balancer_v3
       contributors: balancerlabs, viniabussafi
     config:
-      tags: ['labels', 'arbitrum', 'base', 'ethereum', 'gnosis', 'plasma', 'balancer', 'pools']
+      tags: ['labels', 'avalanche_c', 'balancer', 'pools']
+    description: 'Balancer V3 liquidity pools created on Avalanche C.'
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - address
+    columns:
+      - *blockchain
+      - *address
+      - *name
+      - *category
+      - *contributor
+      - *source
+      - *created_at
+      - *updated_at
+      - *model_name
+      - *label_type
+
+  - name: labels_balancer_v3_pools_hyperevm
+    meta:
+      blockchain: hyperevm
+      sector: labels
+      project: balancer_v3
+      contributors: balancerlabs, viniabussafi
+    config:
+      tags: ['labels', 'hyperevm', 'balancer', 'pools']
+    description: 'Balancer V3 liquidity pools created on HyperEVM.'
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - address
+    columns:
+      - *blockchain
+      - *address
+      - *name
+      - *category
+      - *contributor
+      - *source
+      - *created_at
+      - *updated_at
+      - *model_name
+      - *label_type
+
+  - name: labels_balancer_v3_pools_monad
+    meta:
+      blockchain: monad
+      sector: labels
+      project: balancer_v3
+      contributors: balancerlabs, viniabussafi
+    config:
+      tags: ['labels', 'monad', 'balancer', 'pools']
+    description: 'Balancer V3 liquidity pools created on Monad.'
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - address
+    columns:
+      - *blockchain
+      - *address
+      - *name
+      - *category
+      - *contributor
+      - *source
+      - *created_at
+      - *updated_at
+      - *model_name
+      - *label_type
+
+  - name: labels_balancer_v3_pools
+    meta:
+      blockchain: arbitrum, avalanche_c, base, ethereum, gnosis, hyperevm, monad, plasma
+      sector: labels
+      project: balancer_v3
+      contributors: balancerlabs, viniabussafi
+    config:
+      tags: ['labels', 'arbitrum', 'avalanche_c', 'base', 'ethereum', 'gnosis', 'hyperevm', 'monad', 'plasma', 'balancer', 'pools']
     description: 'Balancer V3 liquidity pools created across blockchains.'
     columns:
       - *blockchain

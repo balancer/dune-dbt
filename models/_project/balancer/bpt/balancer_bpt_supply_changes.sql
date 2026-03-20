@@ -1,0 +1,36 @@
+{{ config(
+    alias = 'bpt_supply_changes'
+    , post_hook='{{ hide_spells() }}'
+    )
+}}
+
+{% set balancer_models = [
+    ref('balancer_v3_ethereum_bpt_supply_changes'),
+    ref('balancer_v3_gnosis_bpt_supply_changes'),
+    ref('balancer_v3_arbitrum_bpt_supply_changes'),
+    ref('balancer_v3_base_bpt_supply_changes')
+] %}
+
+SELECT *
+FROM (
+    {% for model in balancer_models %}
+    SELECT
+        block_date
+      , evt_block_time
+      , evt_block_number
+      , blockchain
+      , evt_tx_hash
+      , evt_index
+      , pool_type
+      , pool_symbol
+      , version
+      , label
+      , token_address
+      , delta_amount_raw
+      , delta_amount
+    FROM {{ model }}
+    {% if not loop.last %}
+    UNION ALL
+    {% endif %}
+    {% endfor %}
+)

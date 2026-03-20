@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: balancer_v3_gnosis_protocol_fee
+    meta:
+      blockchain: gnosis
+      project: balancer_v3
+      contributors: gustavotorres
+    config:
+      tags: ['gnosis', 'revenue', 'fees']
+    description: >
+      Daily protocol fees and treasury split for Balancer V3 pools on gnosis.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - day
+            - pool_id
+            - fee_type
+            - token_address

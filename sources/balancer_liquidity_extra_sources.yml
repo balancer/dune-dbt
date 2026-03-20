@@ -1512,6 +1512,28 @@ sources:
     - name: value
       description: Amount of ERC20 tokens transferred, in the token's native decimal
         representation (raw value)
+- name: erc20_sonic
+  tables:
+  - name: evt_Transfer
+    columns:
+    - name: contract_address
+      description: Address of the ERC20 token contract that emitted this event
+    - name: evt_tx_hash
+      description: Hash of the transaction containing this event
+    - name: evt_index
+      description: Index position of this event within the transaction
+    - name: evt_block_time
+      description: Timestamp of the block containing this event
+    - name: evt_block_number
+      description: The block number containing this event
+    - name: from
+      description: Address of the account that initiated and signed this transaction
+    - name: to
+      description: Address of the recipient account or contract; null for contract
+        creation transactions
+    - name: value
+      description: Amount of ERC20 tokens transferred, in the token's native decimal
+        representation (raw value)
 - name: gyroscope
   tables:
   - name: gyro_tokens

@@ -1,6 +1,6 @@
 {{
     config(
-        alias = 'balancer_cowswap_amm_liquidity',     
+        alias = 'cowswap_amm_liquidity',     
         materialized = 'view'
     )
 }}

@@ -1,5 +1,5 @@
 {{ config(
-    alias = 'balancer_token_balance_changes'
+    alias = 'token_balance_changes'
     , post_hook='{{ hide_spells() }}'
     )
 }}

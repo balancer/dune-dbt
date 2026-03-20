@@ -1,5 +1,5 @@
 {{ config(
-    alias = 'balancer_transfers_bpt'
+    alias = 'transfers_bpt'
     , post_hook='{{ hide_spells() }}'
     )
 }}

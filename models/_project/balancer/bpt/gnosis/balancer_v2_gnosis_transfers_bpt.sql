@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_gnosis_transfers_bpt',
+        alias = 'v2_gnosis_transfers_bpt',
         partition_by = ['block_month'],
         materialized = 'incremental',
         incremental_strategy = 'merge',

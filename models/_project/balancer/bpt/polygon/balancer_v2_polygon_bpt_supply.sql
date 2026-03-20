@@ -2,7 +2,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_polygon_bpt_supply',
+        alias = 'v2_polygon_bpt_supply',
         materialized = 'table',
     )
 }}

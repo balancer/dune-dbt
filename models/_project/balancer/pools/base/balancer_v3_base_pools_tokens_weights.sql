@@ -1,6 +1,6 @@
 {{
     config(
-        alias = 'balancer_v3_base_pools_tokens_weights',
+        alias = 'v3_base_pools_tokens_weights',
         materialized = 'incremental',
         incremental_strategy = 'merge',
         unique_key = ['pool_id', 'token_address']

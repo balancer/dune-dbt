@@ -3,7 +3,7 @@
 
 {{
     config(
-        alias = 'balancer_v2_arbitrum_liquidity',
+        alias = 'v2_arbitrum_liquidity',
         materialized = 'table',
     )
 }}
