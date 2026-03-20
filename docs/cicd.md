@@ -108,7 +108,7 @@ DUNE_API_KEY=your_api_key
 DUNE_TEAM_NAME=your_team_name
 ```
 
-Optional - defaults to `'dune'` if not set.
+This variable is required for deploy/prod/CI workflows.
 
 ## Quality Workflow (No Dune Credits)
 

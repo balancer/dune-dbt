@@ -24,12 +24,20 @@ jobs:
 
     env:
       DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
-      DUNE_TEAM_NAME: ${{ vars.DUNE_TEAM_NAME || 'dune' }}  # Set as GitHub Variable or defaults to 'dune'
+      DUNE_TEAM_NAME: ${{ vars.DUNE_TEAM_NAME }}
       DEV_SCHEMA_SUFFIX: ${{ github.event_name == 'pull_request' && format('pr{0}', github.event.pull_request.number) || 'manual' }}
 
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+
+      - name: Validate required environment
+        run: |
+          if [ -z "${DUNE_TEAM_NAME}" ]; then
+            echo "❌ Missing required GitHub variable: DUNE_TEAM_NAME"
+            echo "Set it in Settings -> Secrets and variables -> Actions -> Variables."
+            exit 1
+          fi
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
