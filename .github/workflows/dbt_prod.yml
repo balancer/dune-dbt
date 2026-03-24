@@ -20,6 +20,9 @@ jobs:
       DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
       DUNE_TEAM_NAME: ${{ vars.DUNE_TEAM_NAME }}
       DBT_TARGET: prod  # All dbt commands will use the prod target from profiles.yml
+      # Workaround for API keys without permission to call dune._internal.alter_view_properties.
+      # Remove once key permissions are upgraded for view/table metadata property updates.
+      DUNE_SKIP_VIEW_PROPERTIES: ${{ vars.DUNE_SKIP_VIEW_PROPERTIES || 'true' }}
 
     steps:
       - name: Check out code
