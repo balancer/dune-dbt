@@ -14,7 +14,8 @@ concurrency:
 jobs:
   dbt-prod:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Incremental prod runs can still be long depending on chain activity.
+    timeout-minutes: 120
 
     env:
       DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
