@@ -89,8 +89,8 @@ jobs:
       - name: Run models
         run: |
           if [ "${{ steps.check-state.outputs.state_exists }}" = "true" ]; then
-            echo "Running modified models with full refresh..."
-            uv run dbt run --select state:modified+ --state ./state --full-refresh
+            echo "Running modified models incrementally..."
+            uv run dbt run --select state:modified+ --state ./state
           else
             echo "First merge to main - running all models..."
             uv run dbt run --full-refresh
