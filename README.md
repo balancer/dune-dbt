@@ -111,6 +111,22 @@ uv run dbt test --select model_name        # Test specific model
 uv run dbt docs generate && uv run dbt docs serve # View documentation
 ```
 
+## Contributing
+
+Install local git hooks to run fast dbt checks before commits:
+
+```bash
+npm install
+npm run prepare
+```
+
+Manually run the same local validation used in pre-commit:
+
+```bash
+uv run dbt deps
+uv run dbt parse --no-partial-parse
+```
+
 ## Cursor AI Rules
 
 This repo includes **optional** Cursor AI guidelines in `.cursor/rules/`:

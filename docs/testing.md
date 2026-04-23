@@ -102,6 +102,7 @@ Use based on your data quality requirements:
 - `accepted_values` - Enum/categorical validation
 - `relationships` - Foreign key checks
 - Custom tests in `tests/` directory
+- dbt native `unit_tests` for deterministic model logic checks with mocked inputs
 
 Example:
 ```yaml
@@ -126,12 +127,48 @@ uv run dbt test
 # Test specific model
 uv run dbt test --select my_model
 
+# Test only singular tests in tests/
+uv run dbt test --select test_type:singular
+
+# Test only dbt unit tests
+uv run dbt test --select test_type:unit
+
 # Test specific model and downstream
 uv run dbt test --select my_model+
 
 # Run and test in sequence
 uv run dbt run --select my_model && uv run dbt test --select my_model
 ```
+
+## Singular Tests (Business Invariants)
+
+Store custom SQL tests in `tests/` when a rule is business-specific and not covered by generic tests.
+
+Current examples:
+
+- `tests/labels/test_labels_balancer_v2_pools_category.sql`
+- `tests/labels/test_labels_balancer_v3_pools_category.sql`
+
+These tests enforce that labels keep their expected category values.
+
+## Unit Tests (Model Logic with Mocked Inputs)
+
+Use dbt `unit_tests` for models that mostly combine or transform upstream model outputs deterministically.
+
+Current examples are defined in:
+
+- `models/_projects/balancer/labels/_schema.yml`
+  - `labels_balancer_v2_pools_unions_chain_outputs`
+  - `labels_balancer_v3_pools_unions_chain_outputs`
+
+These tests verify that cross-chain union models preserve rows from upstream chain models.
+
+## Local vs CI Test Matrix
+
+- **Pre-commit (Husky):** `dbt parse` only (fast and zero-credit)
+- **PR Quality CI (`dbt_quality.yml`):** `dbt parse` only (fast and zero-credit)
+- **PR Dune CI (`dbt_ci.yml`):** full integration runs/tests against Dune (credit-consuming, label-gated)
+- **Prod workflows (`dbt_deploy.yml`, `dbt_prod.yml`):** deployment and incremental health checks
 
 ## Why These Tests?
 

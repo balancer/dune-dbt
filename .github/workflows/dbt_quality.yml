@@ -1,0 +1,42 @@
+name: dbt quality
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'models/**'
+      - 'macros/**'
+      - 'tests/**'
+      - 'dbt_project.yml'
+      - 'packages.yml'
+      - 'profiles.yml'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.github/workflows/dbt_quality.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Install dbt packages
+        run: uv run dbt deps
+
+      - name: Parse dbt project
+        run: uv run dbt parse --no-partial-parse

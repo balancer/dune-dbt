@@ -296,6 +296,54 @@ models:
           'pools',
         ]
     description: 'Balancer V2 liquidity pools created across blockchains.'
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - blockchain
+            - address
+    unit_tests:
+      - name: labels_balancer_v2_pools_unions_chain_outputs
+        given:
+          - input: ref('labels_balancer_v2_pools_ethereum')
+            rows:
+              - blockchain: ethereum
+                address: 0x0000000000000000000000000000000000000001
+                name: balancer-test-pool
+                pool_type: weighted
+                category: balancer_v2_pool
+                contributor: balancerlabs
+                source: query
+                created_at: '2023-08-17 00:00:00'
+                updated_at: '2023-08-18 00:00:00'
+                model_name: balancer_v2_pools_ethereum
+                label_type: identifier
+          - input: ref('labels_balancer_v2_pools_arbitrum')
+            rows: []
+          - input: ref('labels_balancer_v2_pools_optimism')
+            rows: []
+          - input: ref('labels_balancer_v2_pools_polygon')
+            rows: []
+          - input: ref('labels_balancer_v2_pools_gnosis')
+            rows: []
+          - input: ref('labels_balancer_v2_pools_avalanche_c')
+            rows: []
+          - input: ref('labels_balancer_v2_pools_base')
+            rows: []
+          - input: ref('labels_balancer_v2_pools_zkevm')
+            rows: []
+        expect:
+          rows:
+            - blockchain: ethereum
+              address: 0x0000000000000000000000000000000000000001
+              name: balancer-test-pool
+              pool_type: weighted
+              category: balancer_v2_pool
+              contributor: balancerlabs
+              source: query
+              created_at: '2023-08-17 00:00:00'
+              updated_at: '2023-08-18 00:00:00'
+              model_name: balancer_v2_pools_ethereum
+              label_type: identifier
     columns:
       - *blockchain
       - *address
@@ -517,6 +565,54 @@ models:
     config:
       tags: ['labels', 'arbitrum', 'avalanche_c', 'base', 'ethereum', 'gnosis', 'hyperevm', 'monad', 'plasma', 'balancer', 'pools']
     description: 'Balancer V3 liquidity pools created across blockchains.'
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - blockchain
+            - address
+    unit_tests:
+      - name: labels_balancer_v3_pools_unions_chain_outputs
+        given:
+          - input: ref('labels_balancer_v3_pools_ethereum')
+            rows:
+              - blockchain: ethereum
+                address: 0x0000000000000000000000000000000000000002
+                name: balancer-v3-test-pool
+                pool_type: weighted
+                category: balancer_v3_pool
+                contributor: balancerlabs
+                source: query
+                created_at: '2023-08-17 00:00:00'
+                updated_at: '2023-08-18 00:00:00'
+                model_name: balancer_v3_pools_ethereum
+                label_type: identifier
+          - input: ref('labels_balancer_v3_pools_gnosis')
+            rows: []
+          - input: ref('labels_balancer_v3_pools_arbitrum')
+            rows: []
+          - input: ref('labels_balancer_v3_pools_base')
+            rows: []
+          - input: ref('labels_balancer_v3_pools_plasma')
+            rows: []
+          - input: ref('labels_balancer_v3_pools_avalanche_c')
+            rows: []
+          - input: ref('labels_balancer_v3_pools_hyperevm')
+            rows: []
+          - input: ref('labels_balancer_v3_pools_monad')
+            rows: []
+        expect:
+          rows:
+            - blockchain: ethereum
+              address: 0x0000000000000000000000000000000000000002
+              name: balancer-v3-test-pool
+              pool_type: weighted
+              category: balancer_v3_pool
+              contributor: balancerlabs
+              source: query
+              created_at: '2023-08-17 00:00:00'
+              updated_at: '2023-08-18 00:00:00'
+              model_name: balancer_v3_pools_ethereum
+              label_type: identifier
     columns:
       - *blockchain
       - *address
