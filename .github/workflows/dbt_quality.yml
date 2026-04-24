@@ -40,3 +40,6 @@ jobs:
 
       - name: Parse dbt project
         run: uv run dbt parse --no-partial-parse
+        env:
+          DUNE_TEAM_NAME: ${{ vars.DUNE_TEAM_NAME }}
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}

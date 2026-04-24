@@ -317,6 +317,7 @@ sources:
             data_tests:
               - accepted_values:
                   values: [0, 1, 2, 3]
+                  quote: false
             description: >
               DEPOSIT_FOR_TYPE: 0
               CREATE_LOCK_TYPE: 1
