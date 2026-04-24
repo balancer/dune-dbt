@@ -27,6 +27,7 @@ underlying_tokens AS (
      AND t.contract_address != vm.vault_address
      AND t.value = vm.amountUnderlying
      AND t.to = 0xba1333333333a1ba1108e8412f11850a5c319ba9
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY vm.vault_address ORDER BY vm.evt_tx_hash) = 1
 )
 
 SELECT DISTINCT
