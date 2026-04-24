@@ -18,7 +18,7 @@ When you're ready to enable automated dbt runs on PRs, pushes to main, or a sche
 - [Deploy on merge](./.github/workflows/dbt_deploy.yml)
 - [Scheduled incremental runs](./.github/workflows/dbt_prod.yml)
 
-## 📚 Documentation
+## Documentation
 
 **New to this repo?** See the [docs/](docs/) directory for complete guides:
 
@@ -72,7 +72,12 @@ This project uses dbt targets to control **schema naming**, not API endpoints:
   - **`dev` target** (default): Writes to `{team}__tmp_` schemas (safe for development)
   - **`prod` target**: Writes to `{team}` schemas (production tables)
 
-**Local development** uses `dev` target by default. To test with prod target locally:
+**Local development** uses `dev` target by default.
+
+```bash
+uv run dbt run  # Deploy on dev by default
+```
+To test with prod target locally:
 
 ```bash
 uv run dbt run --target prod  # Use prod schema naming
