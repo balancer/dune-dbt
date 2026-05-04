@@ -1,21 +1,20 @@
 {{ config(
         schema = 'balancer',
         alias = 'liquidity_hourly_reclamm',
-        materialized = 'table',
-        file_format = 'delta'
+        materialized = 'table'
         , post_hook='{{ hide_spells() }}'
         )
 }}
 
 {% set balancer_models = [
-ref('balancer_v3_ethereum_liquidity_reclamm')
-, ref('balancer_v3_gnosis_liquidity_reclamm')
-, ref('balancer_v3_arbitrum_liquidity_reclamm')
-, ref('balancer_v3_base_liquidity_reclamm')
-, ref('balancer_v3_avalanche_c_liquidity_reclamm')
-, ref('balancer_v3_hyperevm_liquidity_reclamm')
-, ref('balancer_v3_monad_liquidity_reclamm')
-, ref('balancer_v3_plasma_liquidity_reclamm')
+ref('balancer_v3_ethereum_liquidity_hourly_reclamm')
+, ref('balancer_v3_gnosis_liquidity_hourly_reclamm')
+, ref('balancer_v3_arbitrum_liquidity_hourly_reclamm')
+, ref('balancer_v3_base_liquidity_hourly_reclamm')
+, ref('balancer_v3_avalanche_c_liquidity_hourly_reclamm')
+, ref('balancer_v3_hyperevm_liquidity_hourly_reclamm')
+, ref('balancer_v3_monad_liquidity_hourly_reclamm')
+, ref('balancer_v3_plasma_liquidity_hourly_reclamm')
 ] %}
 
 
