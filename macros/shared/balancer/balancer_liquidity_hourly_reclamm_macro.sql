@@ -5,7 +5,7 @@
         project_decoded_as,
         base_spells_namespace,
         pool_labels_model,
-        start_hour
+        start_hour = '2025-01-01 00:00:00'
     )
 %}
 
@@ -37,7 +37,7 @@ WITH pool_labels AS (
 
     prices_hourly AS (
         SELECT
-            date_trunc('hour', timestamp) AS hour,
+            date_trunc('hour', cast(now() as timestamp)) AS hour,
             contract_address AS token,
             decimals,
             approx_percentile(price, 0.5) AS price
@@ -248,14 +248,18 @@ WITH pool_labels AS (
     ),
 
     calendar AS (
-        SELECT hour_sequence AS hour
+        SELECT
+            CAST(date_sequence AS timestamp) + (hour_offset * interval '1' hour) AS hour
         FROM UNNEST(
             sequence(
-                CAST('{{ start_hour }}' AS timestamp),
-                date_trunc('hour', now()),
-                interval '1' hour
+                CAST(CAST('{{ start_hour }}' AS timestamp) AS date),
+                date(now()),
+                interval '1' day
             )
-        ) AS t(hour_sequence)
+        ) AS t(date_sequence)
+        CROSS JOIN UNNEST(sequence(0, 23)) AS h(hour_offset)
+        WHERE CAST(date_sequence AS timestamp) + (hour_offset * interval '1' hour)
+            <= date_trunc('hour', cast(now() as timestamp))
     ),
 
     cumulative_usd_balance AS (
