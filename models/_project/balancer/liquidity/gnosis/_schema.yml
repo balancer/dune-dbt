@@ -94,3 +94,37 @@ models:
       - *protocol_liquidity_eth
       - *pool_liquidity_usd
       - *pool_liquidity_eth
+
+  - name: balancer_v3_gnosis_liquidity_hourly_reclamm
+    meta:
+      blockchain: gnosis
+      project: balancer_v3
+      contributors: tiagoponciano
+    config:
+      tags: ['gnosis', 'balancer', 'pools', 'liquidity', 'reclamm']
+    description: >
+      Balancer v3 reCLAMM pools hourly liquidity by token on gnosis.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - hour
+            - pool_id
+            - token_address
+    columns:
+      - &hour
+        name: hour
+        description: "Block hour in UTC"
+      - *pool_id
+      - *pool_address
+      - *pool_symbol
+      - *version
+      - *blockchain
+      - *pool_type
+      - *token_address
+      - *token_symbol
+      - *token_balance_raw
+      - *token_balance
+      - *protocol_liquidity_usd
+      - *protocol_liquidity_eth
+      - *pool_liquidity_usd
+      - *pool_liquidity_eth
