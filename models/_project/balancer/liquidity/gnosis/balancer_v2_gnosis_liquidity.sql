@@ -3,8 +3,9 @@
 
 {{
     config(
-    alias = 'v2_gnosis_liquidity',
-        materialized = 'table',
+    schema = 'balancer_v2_gnosis',
+        alias = 'liquidity',
+        materialized = 'table'
     )
 }}
 

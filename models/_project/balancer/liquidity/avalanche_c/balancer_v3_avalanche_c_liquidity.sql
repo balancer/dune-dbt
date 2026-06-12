@@ -1,9 +1,9 @@
 
-{% set blockchain = 'base' %}
+{% set blockchain = 'avalanche_c' %}
 
 {{
     config(
-        schema = 'balancer_v3_base',
+        schema = 'balancer_v3_avalanche_c',
         alias = 'liquidity',
         materialized = 'table'
     )
@@ -16,6 +16,6 @@
         version = '3',        
         project_decoded_as = 'balancer_v3',
         base_spells_namespace = 'balancer',
-        pool_labels_model = 'balancer_v3_pools_base'
+        pool_labels_model = 'balancer_v3_pools_avalanche_c'
     )
 }}
