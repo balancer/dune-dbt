@@ -1336,6 +1336,7 @@ sources:
 - name: dex
   tables:
   - name: prices
+  - name: trades
 - name: erc20_arbitrum
   description: Standard ERC20 Fungible Token event tables for arbitrum
   tables:

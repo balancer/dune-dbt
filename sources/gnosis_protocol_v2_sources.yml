@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: gnosis_protocol_v2_ethereum
+    tables:
+      - name: GPv2Settlement_evt_Trade
+      - name: GPv2Settlement_evt_Settlement

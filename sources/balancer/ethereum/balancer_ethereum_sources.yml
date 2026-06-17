@@ -292,6 +292,10 @@ sources:
             description: ''
           - *token
 
+      - name: BPool_evt_LOG_SWAP
+
+      - name: BPool_call_setSwapFee
+
   - name: balancer_ethereum
     description: >
       Decoded tables related to Balancer, an automated portfolio manager and trading platform, on Ethereum.

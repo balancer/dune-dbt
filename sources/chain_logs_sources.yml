@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: ethereum
+    tables:
+      - name: logs
+
+  - name: arbitrum
+    tables:
+      - name: logs
+
+  - name: base
+    tables:
+      - name: logs
+
+  - name: gnosis
+    tables:
+      - name: logs
+
+  - name: optimism
+    tables:
+      - name: logs
+
+  - name: polygon
+    tables:
+      - name: logs
+
+  - name: avalanche_c
+    tables:
+      - name: logs
+
+  - name: zkevm
+    tables:
+      - name: logs

@@ -77,4 +77,22 @@ models:
         description: "Pool liquidity in USD"
       - &pool_liquidity_eth
         name: pool_liquidity_eth
-        description: "Pool liquidity in ETH"        
+        description: "Pool liquidity in ETH"
+
+  - name: balancer_cowswap_amm_ethereum_trades
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - blockchain
+            - tx_hash
+            - evt_index
+    columns:
+      - name: blockchain
+        tests:
+          - not_null
+      - name: tx_hash
+        tests:
+          - not_null
+      - name: evt_index
+        tests:
+          - not_null        

@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: balancer_trades
+  - name: balancer_ethereum_trades
+  - name: balancer_arbitrum_trades
+  - name: balancer_avalanche_c_trades
+  - name: balancer_base_trades
+  - name: balancer_gnosis_trades
+  - name: balancer_optimism_trades
+  - name: balancer_polygon_trades
+  - name: balancer_zkevm_trades
+  - name: balancer_monad_trades
+  - name: balancer_hyperevm_trades
+  - name: balancer_plasma_trades
+  - name: balancer_v2_ethereum_base_trades
+  - name: balancer_v2_arbitrum_base_trades
+  - name: balancer_v2_avalanche_c_base_trades
+  - name: balancer_v2_base_base_trades
+  - name: balancer_v2_gnosis_base_trades
+  - name: balancer_v2_optimism_base_trades
+  - name: balancer_v2_polygon_base_trades
+  - name: balancer_v2_zkevm_base_trades
+  - name: balancer_v3_ethereum_base_trades
+  - name: balancer_v3_arbitrum_base_trades
+  - name: balancer_v3_avalanche_c_base_trades
+  - name: balancer_v3_base_base_trades
+  - name: balancer_v3_gnosis_base_trades
+  - name: balancer_v3_hyperevm_base_trades
+  - name: balancer_v3_monad_base_trades
+  - name: balancer_v3_plasma_base_trades
+  - name: balancer_v2_ethereum_trades
+    data_tests: &v2_trades_unique_key_tests
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - blockchain
+            - tx_hash
+            - evt_index
+    columns: &v2_trades_key_columns
+      - name: blockchain
+        tests:
+          - not_null
+      - name: tx_hash
+        tests:
+          - not_null
+      - name: evt_index
+        tests:
+          - not_null
+  - name: balancer_v1_ethereum_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v2_arbitrum_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v2_avalanche_c_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v2_base_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v2_gnosis_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v2_optimism_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v2_polygon_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v2_zkevm_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_ethereum_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_arbitrum_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_avalanche_c_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_base_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_gnosis_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_hyperevm_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_monad_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
+  - name: balancer_v3_plasma_trades
+    data_tests: *v2_trades_unique_key_tests
+    columns: *v2_trades_key_columns
